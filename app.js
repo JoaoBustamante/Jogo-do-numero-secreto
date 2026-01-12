@@ -20,22 +20,26 @@ function exibirTextoNaTela(tag, texto){
 
  function verificarChute() {
     let chute = document.querySelector('input').value;
-    
-    if (chute == numeroSecreto) {
-        exibirTextoNaTela('h1', 'Acertou!');
-        let palavraTentetiva = tentativas > 1? 'tentativas': 'tentativa';
-        let mensagemTentativas = `Você descobriu o número secreto com ${tentativas} ${palavraTentetiva}!`;    
-        exibirTextoNaTela('p', mensagemTentativas);
-        document.getElementById('reiniciar').removeAttribute('disabled');
+
+    if ((chute > 10) || (chute < 1)) {
+        exibirTextoNaTela('p', 'O jogo só aceita números entre 1 e 10. Tente novamente.');
     } else {
-                if (chute > numeroSecreto) {
-                        exibirTextoNaTela('p', 'O número secreto é menor');
-                } else {
-                        exibirTextoNaTela('p', 'O número secreto é maior');
-                }
-                   tentativas++;
+        if (chute == numeroSecreto) {
+            exibirTextoNaTela('h1', 'Acertou!');
+            let palavraTentetiva = tentativas > 1? 'tentativas': 'tentativa';
+            let mensagemTentativas = `Você descobriu o número secreto com ${tentativas} ${palavraTentetiva}!`;    
+            exibirTextoNaTela('p', mensagemTentativas);
+            document.getElementById('reiniciar').removeAttribute('disabled');
+        } else {
+            if (chute > numeroSecreto) {
+                exibirTextoNaTela('p', 'O número secreto é menor');
+            } else {
+                exibirTextoNaTela('p', 'O número secreto é maior');
             }
-            
+            tentativas++;
+        }
+    }
+                
 }   
 
 function gerarNumeroAleatorio() {
