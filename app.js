@@ -50,7 +50,6 @@ function gerarNumeroAleatorio() {
         return gerarNumeroAleatorio();
      } else{
         listaDeNumerosSorteados.push(numeroEscolhido);
-        console.log(numeroEscolhido)
         return numeroEscolhido;
      }
     }
@@ -72,3 +71,4 @@ function reiniciarJogo() {
     exibirMensagemInicial();
     document.getElementById('reiniciar').setAttribute('disabled', true);
 }
+
